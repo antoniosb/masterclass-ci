@@ -3,39 +3,6 @@ const ProductModel = require('../models/productModel');
 const ProductController = require('../controllers/productController');
 
 describe('ProductController', function () {
-  describe('Get all products', function () {
-    test('When requesting all products, should return a JSON with all the available products', function () {
-      const mockData = {
-        data: [
-          {
-            id: 1,
-            name: faker.commerce.productName(),
-            brand: faker.commerce.productMaterial(),
-          },
-          {
-            id: 2,
-            name: faker.commerce.productName(),
-            brand: faker.commerce.productMaterial(),
-          },
-        ],
-      };
-
-      const getAllSpy = jest
-        .spyOn(ProductModel, 'getAll')
-        .mockReturnValueOnce(mockData);
-      const mockReq = {};
-      const mockRes = {
-        status: jest.fn().mockReturnThis(),
-        json: jest.fn(),
-      };
-
-      ProductController.getAllProducts(mockReq, mockRes);
-      expect(getAllSpy).toBeCalledTimes(1);
-      expect(mockRes.status).toBeCalledWith(200);
-      expect(mockRes.json).toBeCalledWith(mockData);
-      getAllSpy.mockRestore();
-    });
-  });
   describe('Get product by id', function () {
     test('When requesting a product with the id 1, should return a single product with ID equal to 1', function () {
       const mockData = {

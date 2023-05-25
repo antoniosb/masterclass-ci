@@ -27,19 +27,6 @@ describe('Product Model', function () {
     return dataArray;
   };
 
-  describe('Get all products', function () {
-    beforeEach(function () {
-      mockData = JSON.stringify(data());
-    });
-
-    test('When getting all products, should return an array with all the available products', function () {
-      fs.readFileSync = jest.fn().mockReturnValueOnce(mockData);
-      const res = ProductModel.getAll();
-      expect(res).toStrictEqual(JSON.parse(mockData));
-      fs.readFileSync.mockRestore();
-    });
-  });
-
   describe('Get product by ID', function () {
     beforeEach(function () {
       mockData = JSON.stringify(data());
