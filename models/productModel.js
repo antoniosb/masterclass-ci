@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const FILE_PATH = './data/products.json';
+const FILE_PATH = '../data/products.json';
 
 function getAll() {
   const rawData = fs.readFileSync(FILE_PATH);
